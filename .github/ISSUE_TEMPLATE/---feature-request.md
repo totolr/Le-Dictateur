@@ -1,9 +1,9 @@
 ---
-nom: "Feature Request"
-à propos: Suggérer une idée pour ce projet
-titre: ''
-étiquette: enhancement
-assignation: ''
+name: "Feature Request"
+about: Suggérer une idée pour ce projet
+title: ''
+labels: enhancement
+assignees: ''
 
 ---
 

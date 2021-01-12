@@ -2,7 +2,7 @@
 [![GitHub license](https://img.shields.io/github/license/totolerigolo324/Le-Dictateur?style=flat-square)]()
 ![Version](https://img.shields.io/github/package-json/v/totolerigolo324/Le-Dictateur?style=flat-square) 
 [![Support Discord](https://img.shields.io/discord/727614066247598145?color=7289DA&label=Support&style=flat-square)](https://discord.gg/XyNerQ6ZXX) 
-[![code inspector](https://www.code-inspector.com/project/17590/status/svg)](https://frontend.code-inspector.com/project/17590/dashboard)
+[![code inspector](https://www.code-inspector.com/project/17723/status/svg)](https://frontend.code-inspector.com/project/17723/dashboard)
 ![Node.js CI](https://github.com/totolerigolo324/Le-Dictateur_test/workflows/Node.js%20CI/badge.svg)
 
 # Le Dictateur
