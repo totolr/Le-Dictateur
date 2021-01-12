@@ -1,9 +1,9 @@
 ---
-nom: "Bug Report"
-à propos: Signaler un bug ou un problème suspect
-titre: 'Bug: '
-étiquettes: 'bug: unconfirmed'
-assignation: ''
+name: "Bug Report"
+about: Signaler un bug ou un problème suspect
+title: 'Bug: '
+labels: 'bug: unconfirmed'
+assignees: ''
 
 ---
 
