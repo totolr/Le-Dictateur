@@ -6,7 +6,7 @@
 ![Node.js CI](https://github.com/totolerigolo324/Le-Dictateur/workflows/Node.js%20CI/badge.svg)
 
 # Le Dictateur
-BOT discord multi-serveur avec musique, mini-rpg et plein d'autres commandes!     
+BOT discord multi-serveur avec musique, mini-rpg, système d'expérience et plein d'autres commandes funs et de modération ! 
 Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre serveur: **[Invite Le Dictateur](https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D772244986796048415%26permissions%3D8%26scope%3Dbot)**
 
 ## Support

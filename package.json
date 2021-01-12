@@ -1,7 +1,7 @@
 {
   "name": "le_dictateur",
   "version": "1.0.0",
-  "description": "BOT discord multi-serveur avec musique, mini-rpg, système d'expérience et plein d'autres commandes funs !",
+  "description": "BOT discord multi-serveur avec musique, mini-rpg, système d'expérience et plein d'autres commandes funs et de modération !",
   "main": "main.js",
   "author": "Thomas Métais (metais.thomas92@gmail.com)",
   "homepage": "https://github.com/totolerigolo324/Le-Dictateur",
