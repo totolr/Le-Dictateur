@@ -1,0 +1,7 @@
+contact_links:
+  - name: ❔ Questions / Aide
+    url: https://discord.gg/XyNerQ6ZXX
+    about: Veuillez utiliser le serveur support discord pour obtenir de l'aide et poser des questions, ne démarrez pas d'issue.
+  - name: 📃 Guide Discord.js
+    url: https://discordjs.guide/
+    about: Le guide officiel de discord.js

@@ -1,0 +1,14 @@
+# node_modules
+/node_modules
+
+#fichier de config
+/config.js
+
+#démarrage du bot
+/ecosystem.config.js
+
+#donné quick.db
+/json.sqlite
+
+#log
+/log

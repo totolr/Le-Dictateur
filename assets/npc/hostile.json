@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Le Dictateur",
+    "type": "boss finale",
+    "experience": 10000,
+    "coins": 10000,
+    "attributs": {
+      "hp": 1000,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Boomer",
+    "type": "hostile",
+    "experience": 10,
+    "coins": 5,
+    "attributs": {
+      "hp": 20,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Le Maitre",
+    "type": "hostile",
+    "experience": 20,
+    "coins": 10,
+    "attributs": {
+      "hp": 30,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Asphyxia",
+    "type": "hostile",
+    "experience": 50,
+    "coins": 25,
+    "attributs": {
+      "hp": 50,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Bloater",
+    "type": "hostile",
+    "experience": 100,
+    "coins": 50,
+    "attributs": {
+      "hp": 70,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Cadavres Infectés",
+    "type": "hostile",
+    "experience": 200,
+    "coins": 75,
+    "attributs": {
+      "hp": 100,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "La Fileuse",
+    "type": "hostile",
+    "experience": 250,
+    "coins": 80,
+    "attributs": {
+      "hp": 110,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "William Birkin",
+    "type": "hostile",
+    "experience": 250,
+    "coins": 85,
+    "attributs": {
+      "hp": 120,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Les Gardiens",
+    "type": "hostile",
+    "experience": 300,
+    "coins": 100,
+    "attributs": {
+      "hp": 200,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Lepotica",
+    "type": "hostile",
+    "experience": 500,
+    "coins": 250,
+    "attributs": {
+      "hp": 250,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Le Cerveau de Mensis",
+    "type": "hostile",
+    "experience": 1000,
+    "coins": 500,
+    "attributs": {
+      "hp": 500,
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 0,
+      "spirit": 1
+    }
+  }
+]

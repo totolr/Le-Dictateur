@@ -1,0 +1,16 @@
+# Nombre de jours d'inactivité avant qu'un problème ne devienne obsolète
+daysUntilStale: 14
+# Nombre de jours d'inactivité avant la résolution d'un problème obsolète
+daysUntilClose: 7
+# Les problèmes avec ces étiquettes ne seront jamais considérés comme obsolètes
+exemptLabels:
+  - "bug: confirmed"
+  - "in progress"
+# Étiquette à utiliser pour marquer un problème comme périmé
+staleLabel: stale
+# Commentaire à publier lors du marquage d'un problème comme obsolète. Définir sur «false» pour désactiver
+markComment: >
+  Ce problème a été automatiquement marqué comme obsolète car il n'a pas eu d'activité récente. Il sera fermé si aucune autre activité n'a lieu. Merci pour vos contributions.
+# Commentaire à publier lors de la fermeture d'un problème obsolète. Définir sur «false» pour désactiver
+closeComment: false
+only: issues

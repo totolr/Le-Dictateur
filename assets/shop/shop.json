@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Epée en bois",
+    "type": "Mh",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/768800880592945152/epee_en_bois.png",
+    "color": "#866526",
+    "description": "Juste une épée en bois",
+    "item": "Epée en bois",
+    "prix": 50,
+    "attributs": { "strength" : 1 }
+  },
+  {
+    "name": "Epée en fer",
+    "type": "Mh",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/768801768040562698/epee_en_fer.png",
+    "color": "#F5F5F5",
+    "description": "Juste une épée en fer",
+    "item": "Epée en fer",
+    "prix": 100,
+    "attributs": { "strength" : 2 }
+  }
+]

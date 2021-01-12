@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Aiden Pearce",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/773587811076145162/284.png",
+    "description": "Aiden Pearce, surnommé « Le Justicier » ou « Le Renard » par les citoyens et les médias, est le protagoniste de Watch Dogs. C'est un greyhat hautement qualifié ayant accès au CTOS de Chicago en utilisant un appareil spécial, le Profiler.",
+    "attributs": {
+      "strength": 1,
+      "agility": 2,
+      "intelligence": 6,
+      "spirit": 3
+    }
+  },
+  {
+    "name": "Eren Jager",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/773588243295109138/450.png",
+    "description": "Eren Jäger est un personnage fictif et protagoniste du manga L'Attaque des Titans créé par Hajime Isayama. Eren est un adolescent qui a juré de se venger d'énormes créatures, appelées Titans, qui ont dévoré sa mère.",
+    "attributs": {
+      "strength": 6,
+      "agility": 3,
+      "intelligence": 2,
+      "spirit": 1
+    }
+  },
+  {
+    "name": "Menkyo kaiden",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/773588969538453524/mo_dao_zu_shi_1034149.png",
+    "description": "Le menkyo kaiden est le plus haut niveau dans l'autorisation d'enseigner la technique et l'esprit d'un art martial japonais classique, remise par le maître d'une école, à son ou ses élèves les plus proches et avancés.",
+    "attributs": {
+      "strength": 1,
+      "agility": 2,
+      "intelligence": 3,
+      "spirit": 6
+    }
+  },
+  {
+    "name": "Altaïr Ibn La-Ahad",
+    "icon": "https://cdn.discordapp.com/attachments/745576038448234526/773588824797347860/mDlhItBp.png",
+    "description": "Altaïr Ibn-La'Ahad est un personnage fictif de la série Assassin's Creed. Altair était un maître assassin pendant la troisième croisade en 1191",
+    "attributs": {
+      "strength": 2,
+      "agility": 6,
+      "intelligence": 3,
+      "spirit": 1
+    }
+  }
+]
