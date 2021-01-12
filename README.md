@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/github/package-json/v/totolerigolo324/Le-Dictateur?style=flat-square) 
 [![Support Discord](https://img.shields.io/discord/727614066247598145?color=7289DA&label=Support&style=flat-square)](https://discord.gg/XyNerQ6ZXX) 
 [![code inspector](https://www.code-inspector.com/project/17723/status/svg)](https://frontend.code-inspector.com/project/17723/dashboard)
-![Node.js CI](https://github.com/totolerigolo324/Le-Dictateur_test/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/totolerigolo324/Le-Dictateur/workflows/Node.js%20CI/badge.svg)
 
 # Le Dictateur
 BOT discord multi-serveur avec musique, mini-rpg et plein d'autres commandes!     
