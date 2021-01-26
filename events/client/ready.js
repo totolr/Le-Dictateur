@@ -1,6 +1,6 @@
 module.exports = client => {
   console.log(`${client.user.tag} observe les ${client.users.cache.size} utilisateurs sur ${client.guilds.cache.size} serveur!`);
-  client.channels.cache.get("776577092501897226").send("Le bot est opérationnel!");
+  client.channels.cache.get("773329816434376724").send("Le bot est opérationnel!");
 
   const guild = [];
   client.guilds.cache.map(e => guild.push(e));
