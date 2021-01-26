@@ -1,5 +1,5 @@
 module.exports.run = async (client, message, args, data) => {
-  if (!args[0]) return message.reply(`Voici comment utiliser la commande \`${data.prefix}config\`:\n\`${data.prefix}config prefix <nouvelle_valeur>\` permet de changer le prefix\n\`${data.prefix}config logchannel <#channel>\` permet de changer de logchannel\n\`${data.prefix}config exp <oui/non>\` permet de activer ou non l'exp sur le serveur\n\`${data.prefix}config rpg <oui/non>\` permet de activer ou non le mini-rpg sur le serveur\n\`${data.prefix}config giveaways <oui/non>\` permet de activer ou non la mention lors d'un giveaway\n\`${data.prefix}config expchannel <#channel>\` permet de définir un salon où sont envoyer les messages lors d'une montée de niveau`)
+  if (!args[0]) return message.reply(`Voici comment utiliser la commande \`${data.prefix}config\`:\n\`${data.prefix}config prefix <nouvelle_valeur>\` permet de changer le prefix\n\`${data.prefix}config logchannel <#channel>\` permet de changer de logchannel\n\`${data.prefix}config exp <oui/non>\` permet de activer ou non l'exp sur le serveur\n\`${data.prefix}config rpg <oui/non>\` permet de activer ou non le mini-rpg sur le serveur\n\`${data.prefix}config giveaways <oui/non>\` permet de activer ou non la mention lors d'un giveaway\n\`${data.prefix}config expchannel <#channel>\` permet de définir un salon où sont envoyer les messages lors d'une montée de niveau\n\`${data.prefix}config maxmusique <nombre>\` permet de définir le nombre de musiquex maximum ajouté par playlist\n\`${data.prefix}config volumemusique <nombre>\` permet de définir le volume par défaut de la musique jouer par le bot`);
 
   const getSetting = args[0];
   const newSetting = args.slice(1).join(" ");
@@ -74,7 +74,30 @@ module.exports.run = async (client, message, args, data) => {
       message.channel.send(`Expchannel actuel: ${channel.toString()}`);
       break;
     }
+    case "maxmusique": {
+      if (!isNaN(newSetting) && newSetting !== '') {
+        await client.updateGuild(message.guild, { maxMusique: newSetting });
+        return message.channel.send(`Nombre de musiques max par playlist mis à jour: \`${data.maxMusique}\` -> \`${newSetting}\``);
+      }
+      if (isNaN(newSetting)) {
+        return message.channel.send(':x: Vous devez indiquer un nombre valide!');
+      }
+      message.channel.send(`Nombre de musiques max par playlist actuel: **${data.maxMusique}**`);
+      break;
+    }
+    case "volumemusique": {
+      if (Number(newSetting) > 100 && newSetting !== '' || Number(newSetting) < 0 && newSetting !== ''){
+        return message.channel.send(':x: Veuillez utiliser un nombre compris entre 0 et 100.');
+      }
+      if (Number(newSetting) <= 100 && newSetting !== '' || Number(newSetting) >= 0 && newSetting !== ''){
+        await client.updateGuild(message.guild, { volumeMusique: newSetting });
+        return message.channel.send(`Volume par défaut mis à jour: \`${data.volumeMusique}\` -> \`${newSetting}\``);
+      }
+      message.channel.send(`Volume par défaut actuel: **${data.volumeMusique}**`);
+      break;
+    }
   }
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -83,7 +106,7 @@ module.exports.help = {
   category: 'utile',
   displayName: '📁 Utile',
   description: "Configure le bot pour ton serveur!",
-  cooldown: 10,
+  cooldown: 5,
   usage: '<prefix/logchannel/exp/rpg> [<nouvelle_valeur>]',
   isUserAdmin: false,
   permissions: true,

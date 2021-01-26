@@ -1,7 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, guild) => {
-  client.deleteGuild(guild);
+  console.log(`nouvelle guild: ${guild.name}(${guild.id})/${guild.memberCount}/${guild.owner.user.tag}(${guild.ownerID})`);
+  await client.deleteGuild(guild);
   
   const embedlog = new MessageEmbed()
     .setTitle("Serveur quitté...")

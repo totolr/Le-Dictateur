@@ -29,7 +29,7 @@ module.exports.run = (client, message) => {
   }
 
   message.channel.send(nowPlaying);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

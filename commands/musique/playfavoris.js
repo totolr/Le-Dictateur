@@ -1,9 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { play } = require("../../functions/play");
-const YouTubeAPI = require("simple-youtube-api");
-const scdl = require("soundcloud-downloader").default;
-const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, MAX_PLAYLIST_SIZE, DEFAULT_VOLUME } = require("../../util/music");
-const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+const { DEFAULT_VOLUME } = require("../../util/music");
 const db = require("quick.db");
 
 module.exports.run = async (client, message) => {
@@ -31,7 +28,7 @@ module.exports.run = async (client, message) => {
     connection: null,
     songs: [],
     loop: false,
-    volume: DEFAULT_VOLUME || 100,
+    volume: data.volumeMusique || DEFAULT_VOLUME,
     playing: true
   };
 
@@ -55,7 +52,7 @@ module.exports.run = async (client, message) => {
 
   if (favorisEmbed.description.length >= 2048)
     favorisEmbed.description =
-      favorisEmbed.description.substr(0, 2007) + "\nPlaylist larger than character limit...";
+      favorisEmbed.description.substr(0, 2000) + "\nPlaylist supérieure à la limite de caractères...";
 
   message.channel.send(`${message.author} joue ses musiques favorites`, favorisEmbed);
 
@@ -73,7 +70,7 @@ module.exports.run = async (client, message) => {
       return message.channel.send(`Impossible de rejoindre le channel: ${error.message}`).catch(console.error);
     }
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

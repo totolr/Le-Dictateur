@@ -20,7 +20,6 @@ module.exports.run = async (client, message, args, data) => {
     .setDescription(`**Action**: purge\n**Nbr de messages**: ${args[0]}\n**Salon**: ${message.channel}`);
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
 };
 
 module.exports.help = {

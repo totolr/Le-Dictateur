@@ -1,7 +1,11 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args, data) => {
-  let user = message.guild.member(message.mentions.users.first());
+  let user = client.getMember(message, args[0]);
+
+  if (!user)
+    return message.reply("l'utilisateur n'existe pas.");
+
   let muteRole = message.guild.roles.cache.find(r => r.name === 'muted');
 
   if (!message.mentions.users.first() && message.guild.members.cache.get(args[0]) != undefined) {
@@ -24,7 +28,7 @@ module.exports.run = async (client, message, args, data) => {
     .setFooter(message.author.username, message.author.avatarURL());
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -34,7 +38,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Unmute un utilisateur",
   cooldown: 3,
-  usage: '<@user | ID>',
+  usage: '<@user | id | username>',
   isUserAdmin: false,
   permissions: true,
   args: true,

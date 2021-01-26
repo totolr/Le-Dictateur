@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(embed);
   }
   msg.delete();
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

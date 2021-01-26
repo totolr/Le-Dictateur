@@ -3,7 +3,13 @@ const { MessageEmbed } = require("discord.js");
 const ifFirstCharNumeric = c => /\d/.test(c);
 
 module.exports.run = async (client, message, args, data) => {
-  let user = message.mentions.users.first();
+  let member = client.getMember(message, args[0]);
+
+  if (!member)
+    return message.reply("l'utilisateur n'existe pas.");
+  
+  let user = member.user;
+  
   let raison = args[1];
 
   if (!raison) return message.reply("Indiquer une raison!");
@@ -29,7 +35,7 @@ module.exports.run = async (client, message, args, data) => {
 
   client.channels.cache.get(data.logchannel).send(embed);
   message.reply("Votre demande est en cours de traitement!");
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -39,7 +45,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Report un membre",
   cooldown: 3,
-  usage: '<@user | ID> [<messageID>] <raison>',
+  usage: '<@user | id | username> [<messageID>] <raison>',
   isUserAdmin: false,
   permissions: false,
   args: true,

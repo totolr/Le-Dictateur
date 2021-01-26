@@ -2,16 +2,14 @@ const ms = require("ms");
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args, data) => {
-  let user = message.guild.member(message.mentions.users.first());
+  let user = client.getMember(message, args[0]);
+
+  if (!user)
+    return message.reply("l'utilisateur n'existe pas.");
+  
   let muteRole = message.guild.roles.cache.find(r => r.name === 'muted'); 
   let muteTime = (args[1] || '60s');
   let reason = (args.splice(2).join(' ') || 'aucune raison spécifiée');
-
-  if (!message.mentions.users.first() && message.guild.members.cache.get(args[0]) != undefined) {
-    user = message.guild.members.cache.get(args[0]);
-  } else if (!message.mentions.users.first() && message.guild.members.cache.get(args[0]) == undefined) {
-    return message.reply("l'utilisateur n'existe pas.")
-  }
 
   if (message.guild.member(user.user).hasPermission('BAN_MEMBERS')) return message.reply(`tu ne peux pas utiliser la commande \`${data.prefix}mute\` sur cet utilisateur!`);
 
@@ -54,7 +52,7 @@ module.exports.run = async (client, message, args, data) => {
     .setFooter(message.author.username, message.author.avatarURL());
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -64,7 +62,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Mute un utilisateur",
   cooldown: 3,
-  usage: '<@user | ID> <temps> <raison>',
+  usage: '<@user | id | username> <temps> <raison>',
   isUserAdmin: false,
   permissions: true,
   args: true,

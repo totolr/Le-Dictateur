@@ -3,10 +3,14 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run = async (client, message, args) => {
   let msg = await message.channel.send("\`Génération de l'avatar...\`");
 
-  let mentionedUser = message.mentions.users.first() || message.author;
+  let member = client.getMember(message, args.join(" ")) || message.member;
 
-    let embed = new MessageEmbed()
+  if (!member)
+    return message.reply("l'utilisateur n'existe pas.");
+  
+  let mentionedUser = member.user;
 
+  let embed = new MessageEmbed()
     .setImage(mentionedUser.displayAvatarURL())
     .setColor("#ffef00")
     .setTitle("Avatar")
@@ -16,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(embed);
 
   msg.delete();
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -26,7 +30,7 @@ module.exports.help = {
   displayName: '👥 Utilisateur',
   description: "Renvoie l'avatar d'un utilisateur",
   cooldown: 1,
-  usage: '[<@user>]',
+  usage: '[<@user | id | username>]',
   isUserAdmin: false,
   permissions: false,
   args: false,

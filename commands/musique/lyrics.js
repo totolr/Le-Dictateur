@@ -24,8 +24,7 @@ module.exports.run = async (client, message) => {
     lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
   return message.channel.send(lyricsEmbed).catch(console.error);
   }
-
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

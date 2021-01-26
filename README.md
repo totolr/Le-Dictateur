@@ -36,7 +36,9 @@ Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre 
   * `ld!cat` **Renvoie une image de chat** _Usage_: *ld!cat*
   * `ld!dog` **Renvoie une image de chien** _Usage_: *ld!dog*
   * `ld!fox` **Renvoie une image de renard** _Usage_: *ld!fox*
+  * `ld!love` **Calcule l'affinité amoureuse que vous avez pour une autre personne** _Usage_: *ld!love <@user | id | username>*
   * `ld!memes` **Renvoie un meme** _Usage_: *ld!memes*
+  * `ld!rps` **Jeu du pierre feuille papier ciseaux** _Usage_: *ld!rps*
   * `ld!say` **Répète le message d'un utilisateur** _Usage_: *ld!say <votre_message>*
 
 ### 🎉 Giveaways
@@ -61,16 +63,16 @@ Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre 
  * `ld!unequip` **Enlever un objet sur votre personnage** _Usage_: *ld!unequip <objet_à_enlever>*
 
 ### 🛠️ Modération
- * `ld!ban` **Ban un utilisateur** _Usage_: *ld!ban <@user | user ID> <raison>*
- * `ld!giverole` **Donne un rôle à un utilisateur** _Usage_: *ld!giverole <@user | user ID> <nom rôle | role ID>*
- * `ld!kick` **Kick un utilisateur** _Usage_: *ld!kick <@user | ID> <raison>*
- * `ld!mute` **Mute un utilisateur** _Usage_: *ld!mut <@user | ID> <temps> <raison>*
+ * `ld!ban` **Ban un utilisateur** _Usage_: *ld!ban <@user | id | username> <raison>*
+ * `ld!giverole` **Donne un rôle à un utilisateur** _Usage_: *ld!giverole <@user | id | username> <nom rôle | role ID>*
+ * `ld!kick` **Kick un utilisateur** _Usage_: *ld!kick <@user | id | username> <raison>*
+ * `ld!mute` **Mute un utilisateur** _Usage_: *ld!mut <@user | id | username> <temps> <raison>*
  * `ld!prune` **Purge un nombre de message spécifié sur un utilisateur spécifié** _Usage_: *ld!prune <@user> <nbr_messages>*
  * `ld!purge` **Purge un nombre de message spécifié** _Usage_: *ld!purge <nbr_messages>*
- * `ld!removerole` **Enleve un rôle à un utilisateur** _Usage_: *ld!removerole <@user | user ID> <nom rôle | role ID>*
- * `ld!report` **Report un membre** _Usage_: *ld!report <@user | ID> [<messageID>] <raison>*
+ * `ld!removerole` **Enleve un rôle à un utilisateur** _Usage_: *ld!removerole <@user | id | username> <nom rôle | role ID>*
+ * `ld!report` **Report un membre** _Usage_: *ld!report <@user | id | username> [<messageID>] <raison>*
  * `ld!unban` **Unban un utilisateur** _Usage_: *ld!unban <user_id>*
- * `ld!unmute` **Unmute un utilisateur** _Usage_: *ld!unmute <@user | ID>*
+ * `ld!unmute` **Unmute un utilisateur** _Usage_: *ld!unmute <@user | id | username>*
 
 ### 🎵 Musique
  * `ld!favoris` **Affiche vos favoris** _Usage_: *ld!favoris*
@@ -90,6 +92,7 @@ Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre 
  * `ld!volume` **Changer le volume de la musique en cours de lecture** _Usage_: *ld!volume [<volume>]*
 
 ### 🎭 Social
+ * `ld!baka` **Dit un quelqu'un qu'il est baka (dans la bonne humeur)** _Usage_: *ld!baka <@user>*
  * `ld!cuddle` **Colle toi à quelqu'un** _Usage_: *ld!cuddle <@user>*
  * `ld!feed` **Donne à manger à quelqu'un** _Usage_: *ld!feed <@user>*
  * `ld!hug` **Fait un calin à quelqu'un** _Usage_: *ld!hug <@user>*
@@ -110,10 +113,11 @@ Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre 
  * `ld!translate` **Traduire une phrase** _Usage_: *ld!translate <langue> <texte_à_traduire>*
 
 ### 👥 Utilisateur
- * `ld!avatar` **Renvoie l'avatar d'un utilisateur** _Usage_: *ld!avatar*
- * `ld!exp` **Renvoie l'expérience de l'utilisateur** _Usage_: *ld!exp*
+ * `ld!avatar` **Renvoie l'avatar d'un utilisateur** _Usage_: *ld!avatar [<@user | id | username>]*
+ * `ld!exp` **Renvoie l'expérience de l'utilisateur** _Usage_: *ld!exp [<@user | id | username>]*
+ * `ld!fortnite` **Afficher les statistiques de quelqu'un et le magasin actuel** _Usage_: *ld!fortnite <username | store> [<plateforme (pc, xb1, psn)>]*
  * `ld!leaderboard` **Classement d'expérience (top 10) des utlisateurs sur le serveur** _Usage_: *ld!leaderboard*
- * `ld!userinfo` **Renvoie des informations concernant un utilisateur (ou vous-même)** _Usage_: *ld!userinfo [<@user>]*
+ * `ld!userinfo` **Renvoie des informations concernant un utilisateur (ou vous-même)** _Usage_: *ld!userinfo [<@user | id | username>]*
 
 
 # Crédit

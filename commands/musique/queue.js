@@ -51,7 +51,7 @@ module.exports.run = async (client, message) => {
       return message.channel.send(error.message).catch(console.error);
     }
   });
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 }
 
 function generateQueueEmbed(message, queue) {

@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, guild) => {
+  console.log(`nouvelle guild: ${guild.name}(${guild.id})/${guild.memberCount}/${guild.owner.user.tag}(${guild.ownerID})`);
   await client.createGuild({guildID: guild.id,}); 
 
   const embedlog = new MessageEmbed()

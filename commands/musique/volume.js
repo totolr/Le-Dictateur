@@ -16,7 +16,7 @@ module.exports.run = (client, message, args)  => {
   queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
 
   queue.textChannel.send(`Volume réglé sur: **${args[0]}%**`).catch(console.error);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

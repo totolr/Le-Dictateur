@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.activeCollector = false;
     message.reply(error.message).catch(console.error);
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

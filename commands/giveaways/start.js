@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args, data) => {
     });
 
     message.channel.send(`Le giveaway a commencé en ${giveawayChannel}!`);
-    message.delete();
+    message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

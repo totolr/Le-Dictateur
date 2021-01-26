@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const citation = require("../../assets/dictature/citation.json")
+const citation = require("../../assets/dictature/citation.json");
 
 module.exports.run = async (client, message) => {
   let msg = await message.channel.send("`Génération de la citation...`");
@@ -13,7 +13,7 @@ module.exports.run = async (client, message) => {
 
   message.channel.send(embed);
   msg.delete();
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

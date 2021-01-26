@@ -1,14 +1,13 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args, data) => {
-  let user = message.mentions.users.first();
-  let reason = (args.splice(1).join(' ') || 'aucune raison spécifiée');
+  let member = client.getMember(message, args[0]);
 
-  if (!message.mentions.users.first() && client.users.cache.get(args[0]) != undefined) {
-    user = client.users.cache.get(args[0]);
-  } else if (!message.mentions.users.first() && client.users.cache.get(args[0]) == undefined) {
-    return message.reply("l'utilisateur n'existe pas.")
-  }
+  if (!member)
+    return message.reply("l'utilisateur n'existe pas.");
+  
+  let user = member.user;
+  let reason = (args.splice(1).join(' ') || 'aucune raison spécifiée');
 
   if (message.guild.member(user).hasPermission('BAN_MEMBERS')) return message.reply(`tu ne peux pas utiliser la commande \`${data.prefix}ban\` sur cet utilisateur!`);
 
@@ -23,7 +22,7 @@ module.exports.run = async (client, message, args, data) => {
     .setFooter(message.author.username, message.author.avatarURL());
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -33,7 +32,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Ban un utilisateur",
   cooldown: 3,
-  usage: '<@user | user ID> <raison>',
+  usage: '<@user | id | username> <raison>',
   isUserAdmin: false,
   permissions: true,
   args: true,

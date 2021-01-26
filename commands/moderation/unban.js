@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, data) => {
     .setFooter(message.author.username, message.author.avatarURL());
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -23,7 +23,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Unban un utilisateur",
   cooldown: 3,
-  usage: '<user_id>',
+  usage: '<user id>',
   isUserAdmin: false,
   permissions: true,
   args: true,

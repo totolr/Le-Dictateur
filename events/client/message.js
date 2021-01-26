@@ -54,6 +54,7 @@ module.exports = async (client, message) => {
     .setColor("#fe2712")
     .setDescription(`**La commande ${message.content.split(/ +/, 1).toString()} n'as pas été trouvé !**`);
 
+    message.delete({ timeout: 5000 }).catch(console.error);
     return message.channel.send(commandNotFind);
   };
 

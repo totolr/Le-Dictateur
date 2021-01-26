@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("Une erreur s'est produite...");
         }
     });
-    message.delete();
+    message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

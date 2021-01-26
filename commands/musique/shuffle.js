@@ -1,4 +1,3 @@
-  
 const { canModifyQueue } = require("../../util/music");
 
 module.exports.run = (client, message) => {
@@ -14,7 +13,7 @@ module.exports.run = (client, message) => {
   queue.songs = songs;
   client.queue.set(message.guild.id, queue);
   queue.textChannel.send(`${message.author} 🔀 a mélangé la file d'attente`).catch(console.error);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

@@ -27,6 +27,14 @@ const guildSchema = mongoose.Schema({
     "type": String,
     "default": 'non'
   },
+  maxMusique: {
+    "type": Number,
+    "default": 25
+  },
+  volumeMusique: {
+    "type": Number,
+    "default": 100
+  },
   users: []
 });
 

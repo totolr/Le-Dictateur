@@ -5,7 +5,7 @@ const scdl = require("soundcloud-downloader").default;
 const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, MAX_PLAYLIST_SIZE, DEFAULT_VOLUME } = require("../../util/music");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, data) => {
   const { channel } = message.member.voice;
   const serverQueue = message.client.queue.get(message.guild.id);
 
@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
     connection: null,
     songs: [],
     loop: false,
-    volume: DEFAULT_VOLUME || 100,
+    volume: data.volumeMusique || DEFAULT_VOLUME,
     playing: true
   };
 
@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args) => {
   if (urlValid) {
     try {
       playlist = await youtube.getPlaylist(url, { part: "snippet" });
-      videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 25, { part: "snippet" });
+      videos = await playlist.getVideos(data.maxMusique || MAX_PLAYLIST_SIZE, { part: "snippet" });
     } catch (error) {
       console.error(error);
       return message.reply(":x: Playlist introuvable :(").catch(console.error);
@@ -60,7 +60,7 @@ module.exports.run = async (client, message, args) => {
     try {
       const results = await youtube.searchPlaylists(search, 1, { part: "snippet" });
       playlist = results[0];
-      videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 25, { part: "snippet" });
+      videos = await playlist.getVideos(data.maxMusique || MAX_PLAYLIST_SIZE, { part: "snippet" });
     } catch (error) {
       console.error(error);
       return message.reply(error.message).catch(console.error);
@@ -86,7 +86,7 @@ module.exports.run = async (client, message, args) => {
 
   if (playlistEmbed.description.length >= 2048)
     playlistEmbed.description =
-      playlistEmbed.description.substr(0, 2007) + "\nPlaylist larger than character limit...";
+      playlistEmbed.description.substr(0, 2000) + "\nPlaylist supérieure à la limite de caractères...";
 
   message.channel.send(`${message.author} a commencé une playlist`, playlistEmbed);
 
@@ -104,7 +104,7 @@ module.exports.run = async (client, message, args) => {
       return message.channel.send(`Impossible de rejoindre le channel: ${error.message}`).catch(console.error);
     }
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

@@ -11,7 +11,7 @@ module.exports.run = async (client, message) => {
     .setFooter(`${client.user.username} - Definition`);
 
   message.channel.send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

@@ -6,7 +6,7 @@ const https = require("https");
 const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, DEFAULT_VOLUME } = require("../../util/music");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, data) => {
   const { channel } = message.member.voice;
 
   const serverQueue = client.queue.get(message.guild.id);
@@ -29,9 +29,9 @@ module.exports.run = async (client, message, args) => {
   const urlValid = videoPattern.test(args[0]);
 
   if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-    return client.commands.get("playlist").run(client, message, args);
+    return client.commands.get("playlist").run(client, message, args, data);
   } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-    return client.commands.get("playlist").run(client, message, args);
+    return client.commands.get("playlist").run(client, message, args, data);
   }
 
   if (mobileScRegex.test(url)) {
@@ -56,7 +56,7 @@ module.exports.run = async (client, message, args) => {
     connection: null,
     songs: [],
     loop: false,
-    volume: DEFAULT_VOLUME || 100,
+    volume: data.volumeMusique || DEFAULT_VOLUME,
     playing: true
   };
 
@@ -122,7 +122,7 @@ module.exports.run = async (client, message, args) => {
     await channel.leave();
     return message.channel.send(`:x: Impossible de rejoindre le channel: ${error}`).catch(console.error);
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 

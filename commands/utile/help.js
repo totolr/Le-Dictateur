@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const categoryList = readdirSync('./commands');
+const lsv = require("../../assets/help/help.json");
 
 module.exports.run = async (client, message, args, data) => {
   const categoryListWithoutAdmin = categoryList.filter(file => file !== 'admin'); 
@@ -17,12 +18,20 @@ module.exports.run = async (client, message, args, data) => {
         `${client.commands.filter(cat => cat.help.category === category.toLowerCase()).map(cmd => cmd.help.name).join(', ')}`, true
       );
     };
+
+    const infoLsv = lsv[Math.floor(Math.random() * lsv.length)];
+
+    embed.addField(
+      `💡 LE SAVIEZ-VOUS !`,
+      `${infoLsv.lsv.replace('{{prefix}}', `${data.prefix}`)}`, false
+    );
     
     embed.addField(
       `Si vous avez un problème avec le bot nous vous invitons à vous rendre sur le serveur support`,
-      `[Support](https://discord.gg/q7uhPKb) | [Ajoute le bot à ton serveur](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`, false
+      `[Support](https://discord.gg/q7uhPKb) | [Invite moi !](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | [Votez pour moi !](https://top.gg/bot/772244986796048415)`, false
     );
 
+    message.delete({ timeout: 5000 }).catch(console.error);
     return message.channel.send(embed);
   } else if (categoryList.find(cat => cat == args.join(" ").toLowerCase()) != undefined){
     const commands = client.commands.filter(cmd => cmd.help.category == args.join(" ").toLowerCase());
@@ -44,6 +53,7 @@ module.exports.run = async (client, message, args, data) => {
       `[Support](https://discord.gg/q7uhPKb) | [Ajoute le bot à ton serveur](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`, false
     );
 
+    message.delete({ timeout: 5000 }).catch(console.error);
     return message.channel.send(embed);
   } else {
     const command = client.commands.get(args[0])  || client.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(args[0]));
@@ -56,6 +66,7 @@ module.exports.run = async (client, message, args, data) => {
       .addField("Utilisation", command.help.usage ? `${data.prefix}${command.help.name} ${command.help.usage}` : `${data.prefix}${command.help.name}`, true)
 
     if (command.help.aliases.length > 1) embed.addField("Alias", `${command.help.aliases.join(', ')}`, true);
+    message.delete({ timeout: 5000 }).catch(console.error);
     return message.channel.send(embed);
   }
 };

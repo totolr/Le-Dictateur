@@ -2,7 +2,12 @@ const { createCanvas, loadImage } = require("canvas");
 const { MessageAttachment } = require("discord.js");
 
 module.exports.run = async (client, message, args, data, userInfo) => {
-  const users = await client.getUsers(message.member);
+  let member = client.getMember(message, args.join(" ")) || message.member;
+
+  if (!member)
+    return message.reply("l'utilisateur n'existe pas.");
+
+  const users = await client.getUsers(member);
   const rang = users.sort((a, b) => (client.getExperience(a.level, a.experience) < client.getExperience(b.level, b.experience))? 1 : -1).map(e => e.id).indexOf(message.member.id) + 1;
 
   const canvas = createCanvas(800, 333);
@@ -31,13 +36,13 @@ module.exports.run = async (client, message, args, data, userInfo) => {
 
   ctx.font = "40px Arial Black";
   ctx.textAlign = "left";
-  ctx.fillText(message.member.user.tag, 80, 100);
+  ctx.fillText(member.user.tag, 80, 100);
   ctx.fillText(`Niveau: ${userInfo.level} / Rang: ${rang}`, 80, 150);
 
 
   const attachement = new MessageAttachment(canvas.toBuffer(), "exp.png");
   message.channel.send(attachement);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -47,7 +52,7 @@ module.exports.help = {
   displayName: '👥 Utilisateur',
   description: "Renvoie l'expérience de l'utilisateur!",
   cooldown: 1,
-  usage: '',
+  usage: '[<@user | id | username>]',
   isUserAdmin: false,
   permissions: false,
   args: false,

@@ -16,7 +16,7 @@ module.exports.run = (client, message, args) => {
     .setFooter(`${client.user.username} - 8ball`)
 
   message.channel.send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

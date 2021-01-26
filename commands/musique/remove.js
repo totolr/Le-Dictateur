@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
 
   const song = queue.songs.splice(args[0] - 1, 1);
   queue.textChannel.send(`${message.author} ❌ enleve **${song[0].title}** de la file d'attente.`);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

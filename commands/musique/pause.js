@@ -10,7 +10,7 @@ module.exports.run = (client, message) => {
     queue.connection.dispatcher.pause(true);
     return queue.textChannel.send(`${message.author} ⏸ a mis la musique en pause.`).catch(console.error);
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {

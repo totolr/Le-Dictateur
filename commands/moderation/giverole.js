@@ -1,14 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args, data) => {
-  let memberRole = message.guild.member(message.mentions.users.first());
-  let argsRole = args.splice(1).join(' ');
+  let memberRole = client.getMember(message, args[0]);
 
-  if (!message.mentions.users.first() && message.guild.members.cache.get(args[0]) != undefined) {
-    memberRole = message.guild.members.cache.get(args[0]);
-  } else if (!message.mentions.users.first() && message.guild.members.cache.get(args[0]) == undefined) {
-    return message.reply("l'utilisateur n'existe pas.")
-  }
+  if (!memberRole)
+    return message.reply("l'utilisateur n'existe pas.");
+
+  let argsRole = args.splice(1).join(' ');
 
   let role = message.guild.roles.cache.get(argsRole);
 
@@ -34,7 +32,7 @@ module.exports.run = async (client, message, args, data) => {
   } else {
     message.reply("Le rôle n'existe pas!");
   }
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -44,7 +42,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Donne un rôle à un utilisateur",
   cooldown: 3,
-  usage: '<@user | user ID> <nom rôle | role ID>',
+  usage: '<@user | id | username> <nom rôle | role ID>',
   isUserAdmin: false,
   permissions: true,
   args: true,

@@ -1,7 +1,10 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args, data) => {
-  let user = message.guild.member(message.mentions.users.first());
+  let user = client.getMember(message, args[0]);
+
+  if (!user)
+    return message.reply("l'utilisateur n'existe pas.");
   if (isNaN(args[1]) || (args[1] < 1 || args[1] > 100)) return message.reply('il faut spécifier un ***nombre*** entre 1 et 100!');
 
   const messages = (await message.channel.messages.fetch({
@@ -28,7 +31,7 @@ module.exports.run = async (client, message, args, data) => {
     .setDescription(`**Action**: purne\n**Nbr de messages**: ${args[1]}\n**Utilisateur**: ${args[0]}`);
 
   client.channels.cache.get(data.logchannel).send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -38,7 +41,7 @@ module.exports.help = {
   displayName: '🛠️ Moderation',
   description: "Purge un nombre de message spécifié sur un utilisateur spécifié",
   cooldown: 3,
-  usage: '<@user> <nbr_messages>',
+  usage: '<@user | id | username> <nbr_messages>',
   isUserAdmin: true,
   permissions: true,
   args: true,

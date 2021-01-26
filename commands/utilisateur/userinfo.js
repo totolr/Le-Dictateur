@@ -2,8 +2,11 @@ const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
 
 module.exports.run = (client, message, args) => {
-  let member = message.member;
-  if (args[0]) member = message.guild.member(message.mentions.users.first());
+  let member = client.getMember(message, args.join(" ")) || message.member;
+
+  if (!member)
+    return message.reply("l'utilisateur n'existe pas.");
+  
   let user = member.user;
 
   const embed = new MessageEmbed()
@@ -19,7 +22,7 @@ module.exports.run = (client, message, args) => {
     .setFooter(`${client.user.username} - Userinfo`);
 
   message.channel.send(embed);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
@@ -29,7 +32,7 @@ module.exports.help = {
   displayName: '👥 Utilisateur',
   description: "Renvoie des informations concernant un utilisateur (ou vous-même)!",
   cooldown: 3,
-  usage: '[<@user>]',
+  usage: '[<@user | id | username>]',
   isUserAdmin: false,
   permissions: false,
   args: false,

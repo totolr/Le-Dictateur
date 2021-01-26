@@ -23,7 +23,7 @@ module.exports.run = (client, message, args) => {
   }
   queue.connection.dispatcher.end();
   queue.textChannel.send(`${message.author} ⏭ a skip ${args[0] - 1} chansons`).catch(console.error);
-  message.delete();
+  message.delete({ timeout: 5000 }).catch(console.error);
 };
 
 module.exports.help = {
