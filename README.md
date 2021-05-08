@@ -10,7 +10,7 @@ BOT discord multi-serveur avec musique, mini-rpg, système d'expérience et plei
 Pour me soutenir à continuer à le développer vous pouvez l'inviter sur votre serveur: **[Invite Le Dictateur](https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D772244986796048415%26permissions%3D8%26scope%3Dbot)**
 
 ## Support
-* Si vous avez des questions, n'hésitez pas à rejoindre le **[Serveur Support](https://discord.gg/zvvasbc )**
+* Si vous avez des questions, n'hésitez pas à rejoindre le **[Serveur Support](https://discord.gg/XyNerQ6ZXX)**
 * Bug trouvé? N'hésitez pas à ouvrir une issue!
 
 ## Contribution
