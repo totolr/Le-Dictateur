@@ -7,7 +7,7 @@
   "homepage": "https://github.com/totolerigolo324/Le-Dictateur",
   "repository": "github:totolerigolo324/Le-Dictateur",
   "bugs": "https://github.com/totolerigolo324/Le-Dictateur/issues",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "engines": {
     "node": ">=12.0.0"
   },
